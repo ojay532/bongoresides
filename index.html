@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BongoResides </title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /*       margin: 0;
+ */
+body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+.hero {
+  background-image: url('images/kilimanjaro.jpg'); /* *CHANGE THIS to your image path* */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* This makes the background stable */
+  min-height: 70vh; /* Ensures the section is tall enough to see the effect */
+  color:  #fff; /* Optional: Adjust text color for readability */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+  padding: 100px 20px;
+}
+.hero h1 {
+    font-size: 4rem;
+    margin: 0;
+    text-align: center;
+    font-family: 'Arial', sans-serif; /* Modern font for the main title */  
+    font-weight: bolder;
+}
+.btn-primary {
+      background: #d81e05;
+      color: #fff;
+      padding: 12px 25px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s;
+}
+.btn-primary:hover {
+      background: #a91200;
+}
+section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+}
+/* Bright green for a modern touch */
+.hero h3 {
+    font-size: 1.5rem;
+    margin: 10px 0 20px;
+    text-align: center;
+    color: #f2f3ee; /* Light color for contrast */
+} 
+/* Overall Testimonials Section Styling */
+/* Basic styling for the reviews section - adjust to match your site's design */
+/* Basic styling for the reviews section */
+.reviews-section {
+    text-align: center;
+    padding: 70px 20px;
+    background-color: #ffffff; /* Clean white or very light color */
+    border-top: 5px solid #4CAF50; /* A vibrant top border, adjust color */
+    border-bottom: 5px solid #4CAF50;
+    color: #333;
+}
+
+.reviews-section h2 {
+    font-size: 2.8em;
+    margin-bottom: 35px;
+    color: #f7f8f3;
+    position: relative;
+}
+
+/* Add an underline effect to the heading */
+.reviews-section h2::after {
+    content: '';
+    display: block;
+    width: 80px; /* Width of the underline */
+    height: 4px; /* Thickness of the underline */
+    background-color: #4CAF50; /* Color of the underline */
+    margin: 15px auto 0; /* Center it below the heading */
+    border-radius: 2px;
+}
+
+
+#reviews-container {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 25px;
+    background-color: #f8f8f8; /* Slightly off-white for the container */
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Moderate shadow */
+    min-height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+}
+
+/* Styling for individual review (if using custom JS) */
+.review-item {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #ffffff; /* White background for individual reviews */
+    border: 1px solid #eee; /* Light border */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Soft shadow */
+}
+
+/* ... (Keep the rest of the styling for review-text, reviewer-name, star-rating, leave-review-prompt from Option 1) ... */
+.reviews-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #222;
+}
+
+#reviews-container {
+    max-width: 800px;
+    margin: 0 auto;
+    /* Basic styling if you're using the JS example, or will be filled by widget */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 150px; /* Give it some space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: italic; /* For the "Loading reviews..." text */
+}
+
+/* Styling for individual review if you go the custom JS route */
+.review-item {
+    margin-bottom: 25px;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.review-item:last-child {
+    border-bottom: none;
+}
+
+.review-text {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.reviewer-name {
+    font-weight: bold;
+    color: #555;
+    font-size: 0.95em;
+    text-align: right;
+    margin-top: 10px;
+}
+
+/* Star rating styling */
+.star-rating .fa-star {
+    color: #ffd700; /* Gold color for stars */
+    font-size: 1.2em;
+    margin-right: 2px;
+}
+
+.star-rating .fa-star.empty {
+    color: #ccc; /* Grey for empty stars */
+}
+
+.leave-review-prompt {
+    margin-top: 40px;
+    font-size: 1.1em;
+}
+
+.leave-review-prompt a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.leave-review-prompt a:hover {
+    text-decoration: underline;
+}
+
+/* Basic responsiveness */
+@media (max-width: 768px) {
+    .reviews-section h2 {
+        font-size: 2em;
+    }
+    #reviews-container {
+        padding: 15px;
+  }
+  
+    .contact-section {
+    background-color: #333; /* Or whatever dark gray you have */
+    color: #fff; /* White text */
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 2.5em; /* Larger, more prominent */
+    margin-bottom: 30px;
+    font-weight: bold;
+    /* Adjust font-family to match your brand */
+}
+
+.contact-options {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 20px; /* Space between buttons */
+    max-width: 300px; /* Limit button width */
+    margin: 0 auto 40px auto; /* Center and add bottom margin */
+}
+
+.contact-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 25px;
+    border-radius: 8px; /* Slightly rounded corners */
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    border: none; /* Remove default button border */
+    color: #fff; /* Ensure text is white */
+}
+
+.contact-button i { /* For icons */
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.whatsapp-button {
+    background-color: #25D366; /* WhatsApp green */
+}
+
+.whatsapp-button:hover {
+    background-color: #1DA851; /* Darker green on hover */
+}
+
+.email-button {
+    background-color: #DB4437; /* Google's red, or a color from your brand palette */
+}
+
+.email-button:hover {
+    background-color: #C0352A;
+}
+
+.copyright {
+    font-size: 0.9em;
+    opacity: 0.8; /* Slightly subdued */
+}
+    footer {
+      background: #222;
+      color: #aaa;
+      text-align: center;
+      padding: 20px;
+    }
+    .faq-section {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.faq-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+}
+
+.faq-item {
+    margin: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.faq-question {
+    width: 100%;
+    text-align: left;
+    padding: 15px;
+    font-size: 1.1rem;
+    background: #f9f9f9;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.faq-question:hover {
+    background: #eee;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.3s;
+    padding: 0 15px;
+    background: #fafafa;
+}
+
+.faq-answer p {
+    margin: 10px 0;
+    color: #555;
+}
+/* --- "What We Offer" Section Styling --- */
+.offer-section {
+    padding: 80px 20px;
+    background-color: #f0f8f9; /* A light, calming background color */
+    text-align: center;
+    color: #333;
+}
+
+.offer-section h2 {
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    color: #222;
+    position: relative;
+}
+
+.offer-section h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #ff6f00; /* Matching your brand color */
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+.section-description {
+    max-width: 800px;
+    margin: 0 auto 50px; /* Center and add more bottom margin */
+    font-size: 1.15em;
+    line-height: 1.7;
+    color: #555;
+}
+
+.offer-features {
+    display: flex; /* Use flexbox for horizontal layout */
+    flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens */
+    justify-content: center; /* Center items when they wrap */
+    gap: 30px; /* Space between feature items */
+    max-width: 1200px; /* Max width for the features container */
+    margin: 0 auto;
+}
+
+.feature-item {
+    background-color: #ffffff; /* White background for each feature card */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    flex: 1; /* Allows items to grow and shrink */
+    min-width: 280px; /* Minimum width for each card before wrapping */
+    max-width: 350px; /* Max width for consistency */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+}
+
+.feature-item:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Stronger shadow on hover */
+}
+
+.feature-item .icon-large {
+    font-size: 3.5em; /* Large icon size */
+    color: #ff6f00; /* Icon color matching brand */
+    margin-bottom: 20px;
+}
+
+.feature-item h3 {
+    font-size: 1.6em; /* Feature heading size */
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.feature-item p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* --- Responsive Adjustments for "What We Offer" --- */
+@media (max-width: 768px) {
+    .offer-section h2 {
+        font-size: 2.2em;
+    }
+    .section-description {
+        font-size: 1em;
+        margin-bottom: 40px;
+    }
+    .feature-item {
+        flex-basis: calc(50% - 30px); /* Two columns on tablets */
+        max-width: none; /* Allow flexibility */
+    }
+}
+
+@media (max-width: 480px) {
+    .offer-section h2 {
+        font-size: 2em;
+    }
+    .feature-item {
+        flex-basis: 100%; /* Single column on mobile */
+        margin: 0 auto 20px; /* Center and add vertical space */
+        max-width: 300px; /* Keep consistent width */
+    }
+    .offer-features {
+        gap: 20px;
+    }
+  }
+
+
+
+}
+ .listings {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .listing-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    .listing-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+/* FAQ Section Styling */
+
+  </style>
+</head>
+<body>
+ <body>
+
+
+</body>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <h1>BONGO RESIDES</h1>
+    <h3>Your gateway to the best stays across Tanzania</h3>
+    <a href="https://wa.me/+255689851231" class="btn-primary">Explore Listings</a>
+  </header>
+
+ <section class="offer-section">
+    <h2>What we offer?</h2>
+    <p class="section-description">
+        BongoResides connects you to top-rated Airbnb stays across Tanzania. Enjoy luxury, comfort, and authentic experiences from Dar-es-salaam beaches to the deep nationalparks.
+    </p>
+
+    <div class="offer-features">
+        <div class="feature-item">
+            <i class="fas fa-shield-alt icon-large"></i> <h3>Safe & Secure Stays</h3>
+            <p>All properties are verified and equipped with the necessary safety features for peace of mind.</p>
+        </div>
+
+        <div class="feature-item">
+            <i class="fas fa-couch icon-large"></i> <h3>Comfort & Luxury Homes</h3>
+            <p>Every space offers modern comforts, elegant design, and a home-like atmosphere to make your stay truly memorable.</p>
+        </div>
+
+        <div class="feature-item">
+            <i class="fas fa-map-marked-alt icon-large"></i> <h3>Fascinating Destinations</h3>
+            <p>Explore unique stays from the vibrant city life of Dar-es-salaam to the serene beaches of Zanzibar and the majestic national parks.</p>
+        </div>
+
+    </div>
+</section>
+  <!-- Listings Section -->
+  <section id="listings" class="listings">
+    <h2>Our Destinations</h2>
+    <div class="listing-card">
+      <img src="images/zanzibar.jpg" alt="Zanzibar stays">
+      <h3>Best Beachfronts</h3>
+      <p>Experience the ocean breeze and white sands in this luxurious costal places.</p>
+    </div>
+    <div class="listing-card">
+      <img src="images/serengeti.jpg" alt="Serengeti stays">
+      <h3>Best wild stays</h3>
+      <p>Stay close to wildlife in the heart of the Tanzanias great National Park.</p>
+    </div>
+   <div class="listing-card">
+      <img src="images/Arusha.jpg" alt="Arusha stays">
+      <h3>Arusha stays</h3>
+      <p>Enjoy peaceful surroundings with easy access to Tanzania's most iconic safari parks.</p>
+    </div>
+    <div class="listing-card">
+      <img src="images/apartments.jpg" alt="Arusha stays">
+      <h3>Best apartments</h3>
+      <p>Close to colorful markets, local crafts, and traditional Maasai culture — Arusha offers the best of both worlds.</p>
+    </div>
+    <div class="listing-card">
+      <img src="images/kilimanjaro.jpg" alt="Arusha stays">
+      <h3>kilimanjaro stays</h3>
+      <p>Wake up to breathtaking views of Mount Meru and the distant snow-capped peaks of Kilimanjaro.</p>
+    </div>
+  </section>
+
+  <section class="reviews-section">
+        <h2>What Our Guests Say</h2>
+
+        <div id="reviews-container">
+            <p>Loading reviews...</p>
+            </div>
+
+        <div class="leave-review-prompt">
+            <p>Loved your stay? <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQL6igA5ur-S3KUWOgGPlkNlHYnjOgycsG9tPtwUQJzTybP90rJhpzy_UTu0ufjnsw8qec-GMXqV3PO/pubhtml?gid=413575672&single=true">leave a review</a></p>
+            </div>
+
+    </section>
+
+    <script src="script.js"></script>
+
+
+  <!-- FAQ Section -->
+ <section class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+        <button class="faq-question">How do I book a stay?</button>
+        <div class="faq-answer">
+            <p>Click 'Explore Listings' and follow the Airbnb link to book your preferred stay.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">Can I contact hosts directly?</button>
+        <div class="faq-answer">
+            <p>Yes, via Airbnb's messaging platform for each listing.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question">Do you offer stays across all Tanzania?</button>
+        <div class="faq-answer">
+            <p>Yes, from Zanzibar beachfronts to the deep National parks and more!</p>
+        </div>
+    </div>
+</section>
+<script>
+  
+const questions = document.querySelectorAll('.faq-question');
+
+questions.forEach(question => {
+    question.addEventListener('click', () => {
+        question.classList.toggle('active');
+        const answer = question.nextElementSibling;
+        if (question.classList.contains('active')) {
+            answer.style.maxHeight = answer.scrollHeight + "px";
+        } else {
+            answer.style.maxHeight = "0";
+        }
+    });
+});
+</script>
+
+  <!-- Contact Section -->
+<section class="contact-section">
+    <h2>Contact Us</h2>
+    <div class="contact-options">
+        <a href="https://wa.me/25589851231" target="_blank" class="contact-button whatsapp-button">
+            <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+        </a>
+        <a href="mailto:olaislotha7@gmail.com" class="contact-button email-button">
+            <i class="fas fa-envelope"></i> Email Us
+        </a>
+    </div>
+    
+</section>
+  <footer>
+    <p>&copy; 2025 BongoResides. All rights reserved.</p>
+  </footer>
+  
+
+</body>
+</html>
